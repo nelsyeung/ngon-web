@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>n-gon</title>
+</head>
+
+<body>
+  <main id="main">
+    <canvas id="canvas"></canvas>
+    <canvas id="canvas-top"></canvas>
+
+    <div id="floating-angle-control">
+      <input id="angle-slider" type="range" min="-180" max="180" value="0">
+      <div id="angle-display">-180°</div>
+    </div>
+  </main>
+
+  <aside class="right">
+    <form id="add-polygon">
+      <label for="sides">Sides</label>
+      <input id="sides" type="number" min="3" value="6">
+
+      <label for="length">Length</label>
+      <input id="length" type="text" value="10">
+
+      <label for="radius">Radius</label>
+      <input id="radius" type="text">
+
+      <input type="submit" value="Add">
+    </form>
+
+    <div class="controls">
+      <label for="angle">Angle</label>
+      <input id="angle" type="text" value="0" readonly>
+    </div>
+
+    <button id="clone">Clone</button>
+    <button id="remove">Remove</button>
+    <button id="clear">Clear</button>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,157 @@
+@function grid($multiplier: 1) {
+  @return $multiplier * 0.5rem;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: #252831;
+  display: flex;
+  font: 16px/1 sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+form {
+  margin-bottom: grid();
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: grid(0.5);
+}
+
+input {
+  background: rgba(255, 255, 255, 0.4);
+  border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  margin-bottom: grid();
+  padding: grid();
+  width: 100%;
+  font-size: 0.75rem;
+  transition: 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  &[readonly] {
+    cursor: not-allowed;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.4);
+    }
+  }
+}
+
+input[type="submit"],
+button {
+  -webkit-font-smoothing: inherit;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: inherit;
+  margin-bottom: grid();
+  overflow: visible;
+  padding: grid();
+  transition: 0.3s;
+  width: 100%;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+main {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+canvas {
+  display: block;
+}
+
+aside.right {
+  background: #1e2129;
+  box-sizing: border-box;
+  color: #fff;
+  flex: 0 120px;
+  height: 100%;
+  padding: grid(2);
+}
+
+.controls {
+  margin-bottom: grid();
+}
+
+#canvas-top {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+#floating-angle-control {
+  $size: 280px;
+
+  display: none;
+  left: 50%;
+  margin-left: -$size / 2;
+  position: absolute;
+  text-align: center;
+  top: grid(2);
+  width: $size;
+  z-index: 2;
+}
+
+#angle-slider {
+  $background: rgba(255, 255, 255, 0.3);
+
+  width: 100%;
+  background: $background;
+  margin: 0;
+
+  &:hover,
+  &:focus {
+    background: $background;
+  }
+}
+
+#angle-display {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  margin: grid(0.5) auto 0;
+  padding: grid(0.5) 0;
+  text-align: center;
+  width: 60px;
+}
