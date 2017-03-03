@@ -7,8 +7,10 @@
 
 <body>
   <main id="main">
-    <canvas id="canvas"></canvas>
-    <canvas id="canvas-top"></canvas>
+    <canvas id="canvas-cache" class="canvas canvas--cache"></canvas>
+    <canvas id="canvas-bg" class="canvas canvas--bg"></canvas>
+    <canvas id="canvas-fg" class="canvas canvas--fg"></canvas>
+    <canvas id="canvas-selection" class="canvas canvas--selection"></canvas>
 
     <div id="floating-angle-control">
       <input id="angle-slider" type="range" min="-180" max="180" value="0">
@@ -16,7 +18,7 @@
     </div>
   </main>
 
-  <aside class="right">
+  <aside class="aside aside--right">
     <form id="add-polygon">
       <label for="sides">Sides</label>
       <input id="sides" type="number" min="3" value="6">

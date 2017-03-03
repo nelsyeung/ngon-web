@@ -93,30 +93,46 @@ main {
   flex: 1;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
-canvas {
+.canvas {
   display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  &--cache {
+    left: -200%;
+  }
+
+  &--bg {
+    position: relative;
+  }
+
+  &--fg {
+    z-index: 1;
+  }
+
+  &--selection {
+    z-index: 2;
+  }
 }
 
-aside.right {
+.aside {
   background: #1e2129;
   box-sizing: border-box;
   color: #fff;
-  flex: 0 120px;
   height: 100%;
   padding: grid(2);
+
+  &--right {
+    flex: 0 120px;
+  }
 }
 
 .controls {
   margin-bottom: grid();
-}
-
-#canvas-top {
-  left: 0;
-  position: absolute;
-  top: 0;
-  z-index: 1;
 }
 
 #floating-angle-control {
@@ -129,7 +145,7 @@ aside.right {
   text-align: center;
   top: grid(2);
   width: $size;
-  z-index: 2;
+  z-index: 99;
 }
 
 #angle-slider {
