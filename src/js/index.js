@@ -341,10 +341,25 @@ const manageCanvas = () => next => (action) => {
   return result;
 };
 
-store = createStore(app, applyMiddleware(manageCanvas));
+let persistedState = {};
+
+if (localStorage.getItem('reduxState')) {
+  persistedState = JSON.parse(localStorage.getItem('reduxState'));
+  persistedState.polygons = persistedState.polygons.map((polygon) => {
+    const clone = new ngon.RegularPolygon(polygon.sides, polygon.length);
+    clone.center = polygon.center.slice();
+    clone.coords = polygon.coords.map(c => c.slice());
+    return clone;
+  });
+}
+
+store = createStore(app, persistedState, applyMiddleware(manageCanvas));
 state = store.getState();
+stage.scale = state.ui.scale;
+drawAllPolygons();
 store.subscribe(() => {
   state = store.getState();
+  localStorage.setItem('reduxState', JSON.stringify(state));
 });
 
 window.onresize = () => {
